@@ -79,6 +79,9 @@ colorscheme solarized
 
 " CtrlP settings
 
+" Tag support
+let g:ctrlp_extensions = ['tag']
+nnoremap <Leader>t :CtrlPTag<CR>
 " Open file menu
 nnoremap <Leader>o :CtrlP<CR>
 " Open buffer menu
