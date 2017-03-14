@@ -22,6 +22,9 @@ imap jj <Esc>
 " Make <C-j> the opposite of <S-j>, just like in Evil-mode
 noremap <C-j> i<CR><Esc>
 
+" Make Y copy the entire row
+nnoremap Y y$
+
 " More natural splits
 set splitbelow
 set splitright
@@ -39,6 +42,7 @@ let g:filetype_pl="prolog"
 nnoremap <leader>y "+y
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
+vnoremap <leader>y "+y
 
 " Tab settings
 set tabstop=4       " number of visual spaces per TAB
