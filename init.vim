@@ -70,6 +70,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'tpope/vim-surround' " Surround things
 Plug 'tpope/vim-repeat' " Improve repeat to work with vim-surround
 Plug 'valloric/youcompleteme'
+Plug 'tpope/vim-fugitive' " Awesome git integration
 
 call plug#end()
 
@@ -94,9 +95,12 @@ nnoremap <Leader>f :CtrlPMRUFiles<CR>
 let g:airline_theme='solarized'
 " let g:airline_powerline_fonts=1
 
+" Bind Goyo (plugin)
+nnoremap <Leader>g :Goyo<CR>
+
 " vim-pandoc settings
 let g:pandoc#modules#disabled = ["folding"]
 let g:pandoc#formatting#mode = "ha"
+
 nnoremap <Leader>c :w<CR>:Pandoc pdf<CR>
 
-nnoremap <Leader>g :Goyo<CR>
