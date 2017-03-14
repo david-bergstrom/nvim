@@ -69,6 +69,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'tpope/vim-surround' " Surround things
 Plug 'tpope/vim-repeat' " Improve repeat to work with vim-surround
+Plug 'valloric/youcompleteme'
 
 call plug#end()
 
