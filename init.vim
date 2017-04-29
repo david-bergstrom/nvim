@@ -12,6 +12,7 @@ let mapleader="\<SPACE>"
 
 " Relative line numbers are cool
 set relativenumber
+set number
 
 " Save faster
 noremap <leader>w :w<CR>
