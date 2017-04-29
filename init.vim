@@ -80,8 +80,8 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'tpope/vim-surround' " Surround things
 Plug 'tpope/vim-repeat' " Improve repeat to work with vim-surround
 Plug 'taketwo/vim-ros' " Mode for Robotic Operating System
-Plug 'valloric/youcompleteme'
 Plug 'tpope/vim-fugitive' " Awesome git integration
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'PontusPersson/pddl.vim' " PDDL syntax highlighting
 Plug 'junegunn/rainbow_parentheses.vim' " Rainbow parantheses, great for vim
 
