@@ -21,6 +21,9 @@ let mapleader="\<SPACE>"
 " Relative line numbers are cool
 set relativenumber
 
+" Relative line numbers are cool
+set relativenumber
+
 " Save faster
 noremap <leader>w :w<CR>
 
@@ -29,6 +32,9 @@ imap jj <Esc>
 
 " Make <C-j> the opposite of <S-j>, just like in Evil-mode
 noremap <C-j> i<CR><Esc>
+
+" Make Y copy the entire row
+nnoremap Y y$
 
 " More natural splits
 set splitbelow
@@ -47,6 +53,7 @@ let g:filetype_pl="prolog"
 nnoremap <leader>y "+y
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
+vnoremap <leader>y "+y
 
 " Tab settings
 set tabstop=4       " number of visual spaces per TAB
@@ -73,6 +80,8 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'tpope/vim-surround' " Surround things
 Plug 'tpope/vim-repeat' " Improve repeat to work with vim-surround
 Plug 'taketwo/vim-ros' " Mode for Robotic Operating System
+Plug 'valloric/youcompleteme'
+Plug 'tpope/vim-fugitive' " Awesome git integration
 
 call plug#end()
 
@@ -83,6 +92,9 @@ colorscheme solarized
 
 " CtrlP settings
 
+" Tag support
+let g:ctrlp_extensions = ['tag']
+nnoremap <Leader>t :CtrlPTag<CR>
 " Open file menu
 nnoremap <Leader>o :CtrlP<CR>
 " Open buffer menu
@@ -101,7 +113,5 @@ endif
 " vim-pandoc settings
 let g:pandoc#modules#disabled = ["folding"]
 let g:pandoc#formatting#mode = "ha"
-nnoremap <Leader>c :w<CR>:Pandoc pdf<CR>
 
-" Goyo bindings
-nnoremap <Leader>g :Goyo<CR>
+nnoremap <Leader>c :w<CR>:Pandoc pdf<CR>
