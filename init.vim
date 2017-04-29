@@ -93,6 +93,7 @@ call plug#end()
 set background=dark
 "set background=light
 colorscheme solarized
+call togglebg#map("<F5>")
 
 " CtrlP settings
 
