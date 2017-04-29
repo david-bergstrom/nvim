@@ -11,6 +11,10 @@ if !has('nvim')
     let &t_Co=256
 endif
 
+" TODO: Send to Henning
+"map <ScrollWheelUp> <C-r>
+"map <ScrollWheelDown> u
+
 " Set leader to space
 let mapleader="\<SPACE>"
 
