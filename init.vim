@@ -4,6 +4,13 @@
 " * Learn how tabs work
 " * Reflow code
 
+if !has('nvim')
+    " Vim-things, default in nvim
+    syntax enable
+    set mouse=a
+    let &t_Co=256
+endif
+
 " Set leader to space
 let mapleader="\<SPACE>"
 
@@ -82,6 +89,10 @@ nnoremap <Leader>f :CtrlPMRUFiles<CR>
 " vim-airline settings
 let g:airline_theme='solarized'
 " let g:airline_powerline_fonts=1
+
+if !has('nvim')
+    set laststatus=2
+endif
 
 " vim-pandoc settings
 let g:pandoc#modules#disabled = ["folding"]
