@@ -14,8 +14,8 @@ endif
 " Set leader to space
 let mapleader="\<SPACE>"
 
-" True colors (will work from 0.15 and forward)
-"set termguicolors
+" Relative line numbers are cool
+set relativenumber
 
 " Save faster
 noremap <leader>w :w<CR>
