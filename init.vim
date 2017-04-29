@@ -1,8 +1,6 @@
-" TODO:
-" * Markdown support
-" * Server client model?
-" * Learn how tabs work
-" * Reflow code
+" Modeline looks for hints on first rows on files, only ever used in TDDD48.
+" Remove when course is finished
+set modeline
 
 if !has('nvim')
     " Vim-things, default in nvim
