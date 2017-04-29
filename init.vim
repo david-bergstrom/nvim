@@ -2,14 +2,15 @@
 " Remove when course is finished
 set modeline
 
+" Enable 256 colors, maybe..?
+set t_Co=256
+
 " Vim-things, default in nvim
 if !has('nvim')
     " Enable syntax highlighting
     syntax enable
    " Enable mouse in all modes
     set mouse=a
-    " Enable 256 colors, maybe..?
-    let &t_Co=256
 endif
 
 " TODO: Send to Henning
