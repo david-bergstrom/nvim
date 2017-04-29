@@ -72,6 +72,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'tpope/vim-surround' " Surround things
 Plug 'tpope/vim-repeat' " Improve repeat to work with vim-surround
+Plug 'taketwo/vim-ros' " Mode for Robotic Operating System
 
 call plug#end()
 
