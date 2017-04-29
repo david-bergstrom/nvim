@@ -59,7 +59,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'altercation/vim-colors-solarized'  " Superior color theme
 Plug 'ctrlpvim/ctrlp.vim'  " Find files quickly
-Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-sleuth'  " Auto-detect indentation level
 Plug 'bling/vim-airline'  " Cool statusbar
 Plug 'vim-airline/vim-airline-themes'  " Solarized theme (amongst other)
@@ -99,4 +98,5 @@ let g:pandoc#modules#disabled = ["folding"]
 let g:pandoc#formatting#mode = "ha"
 nnoremap <Leader>c :w<CR>:Pandoc pdf<CR>
 
+" Goyo bindings
 nnoremap <Leader>g :Goyo<CR>
