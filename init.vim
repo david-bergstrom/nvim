@@ -49,6 +49,7 @@ let g:filetype_pl="prolog"
 
 " Simplify the interaction with system clipboard
 nnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>y "+y
