@@ -67,6 +67,7 @@ set spelllang=sv,en
 " vim-plug
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'tpope/vim-sensible' " Sensible default settings (not needed in nvim)
 Plug 'altercation/vim-colors-solarized'  " Superior color theme
 Plug 'ctrlpvim/ctrlp.vim'  " Find files quickly
 Plug 'tpope/vim-sleuth'  " Auto-detect indentation level
