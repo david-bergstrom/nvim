@@ -82,6 +82,8 @@ Plug 'tpope/vim-repeat' " Improve repeat to work with vim-surround
 Plug 'taketwo/vim-ros' " Mode for Robotic Operating System
 Plug 'valloric/youcompleteme'
 Plug 'tpope/vim-fugitive' " Awesome git integration
+Plug 'PontusPersson/pddl.vim' " PDDL syntax highlighting
+Plug 'junegunn/rainbow_parentheses.vim' " Rainbow parantheses, great for vim
 
 call plug#end()
 
@@ -115,3 +117,17 @@ let g:pandoc#modules#disabled = ["folding"]
 let g:pandoc#formatting#mode = "ha"
 
 nnoremap <Leader>c :w<CR>:Pandoc pdf<CR>
+
+" YCM
+let g:ycm_semantic_triggers = {
+\   'roslaunch' : ['="', '$(', '/'],
+\   'rosmsg,rossrv,rosaction' : ['re!^', '/'],
+\ }
+
+let g:ycm_extra_conf_globlist = ['~/ws/*', '~/TDDE05/*']
+
+" Rainbow parentheses
+augroup rainbow_lisp
+  autocmd!
+  autocmd FileType lisp,clojure,scheme,pddl RainbowParentheses
+augroup END
