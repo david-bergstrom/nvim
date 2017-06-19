@@ -123,9 +123,16 @@ if !has('nvim')
     set laststatus=2
 endif
 
+nnoremap <leader>g :Goyo 80x100%<CR>
+
 " vim-pandoc settings
+"let g:pandoc#modules#enabled = ["toc"]
 let g:pandoc#modules#disabled = ["folding"]
+" Disable convertion to digraphs
+"let g:pandoc#syntax#conceal#use = 0
 let g:pandoc#formatting#mode = "ha"
+"let g:pandoc#folding#fold_yaml = 1
+"let g:pandoc#folding#fdc = 0
 
 nnoremap <Leader>c :w<CR>:Pandoc pdf<CR>
 
