@@ -4,13 +4,13 @@ set modeline
 
 " Enable 256 colors, maybe..?
 set t_Co=256
+set mouse=a
 
 " Vim-things, default in nvim
 if !has('nvim')
     " Enable syntax highlighting
     syntax enable
    " Enable mouse in all modes
-    set mouse=a
 endif
 
 " TODO: Send to Henning
