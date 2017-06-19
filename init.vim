@@ -2,15 +2,17 @@
 " Remove when course is finished
 set modeline
 
+set inccommand=split
+
 " Enable 256 colors, maybe..?
 set t_Co=256
+set mouse=a
 
 " Vim-things, default in nvim
 if !has('nvim')
     " Enable syntax highlighting
     syntax enable
    " Enable mouse in all modes
-    set mouse=a
 endif
 
 " TODO: Send to Henning
@@ -23,6 +25,10 @@ let mapleader="\<SPACE>"
 " Relative line numbers are cool
 set relativenumber
 set number
+
+" Use case sensitive search only when a capital character is present
+set ignorecase
+set smartcase
 
 " Save faster
 noremap <leader>w :w<CR>
@@ -55,6 +61,8 @@ nnoremap <leader>Y "+Y
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>y "+y
+
+nnoremap <leader>n :noh<CR>
 
 " Tab settings
 set tabstop=4       " number of visual spaces per TAB
@@ -115,9 +123,16 @@ if !has('nvim')
     set laststatus=2
 endif
 
+nnoremap <leader>g :Goyo 80x100%<CR>
+
 " vim-pandoc settings
+"let g:pandoc#modules#enabled = ["toc"]
 let g:pandoc#modules#disabled = ["folding"]
+" Disable convertion to digraphs
+"let g:pandoc#syntax#conceal#use = 0
 let g:pandoc#formatting#mode = "ha"
+"let g:pandoc#folding#fold_yaml = 1
+"let g:pandoc#folding#fdc = 0
 
 nnoremap <Leader>c :w<CR>:Pandoc pdf<CR>
 
