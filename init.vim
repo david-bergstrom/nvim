@@ -2,6 +2,8 @@
 " Remove when course is finished
 set modeline
 
+set inccommand=split
+
 " Enable 256 colors, maybe..?
 set t_Co=256
 set mouse=a
@@ -23,6 +25,10 @@ let mapleader="\<SPACE>"
 " Relative line numbers are cool
 set relativenumber
 set number
+
+" Use case sensitive search only when a capital character is present
+set ignorecase
+set smartcase
 
 " Save faster
 noremap <leader>w :w<CR>
@@ -55,6 +61,8 @@ nnoremap <leader>Y "+Y
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>y "+y
+
+nnoremap <leader>n :noh<CR>
 
 " Tab settings
 set tabstop=4       " number of visual spaces per TAB
