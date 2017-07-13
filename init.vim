@@ -94,6 +94,7 @@ Plug 'tpope/vim-fugitive' " Awesome git integration
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'PontusPersson/pddl.vim' " PDDL syntax highlighting
 Plug 'junegunn/rainbow_parentheses.vim' " Rainbow parantheses, great for vim
+Plug 'SirVer/ultisnips' " Snippets are cool
 
 call plug#end()
 
@@ -149,3 +150,6 @@ augroup rainbow_lisp
   autocmd!
   autocmd FileType lisp,clojure,scheme,pddl RainbowParentheses
 augroup END
+
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']

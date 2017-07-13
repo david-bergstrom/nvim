@@ -1,0 +1,89 @@
+snippet state
+class $1State(State):
+    def __init__(self, cont, per, game_info, helper):
+        State.__init__(self, '$1State', cont, per, game_info, helper)
+
+    def enter(self):
+        self.conditions = {'$2': False}
+
+    def exit(self):
+        pass
+
+    def run(self):
+        self.conditions = {'$2': True}
+endsnippet
+
+
+snippet sstate
+class $1State(State):
+    def __init__(self, cont, per, game_info, helper):
+        State.__init__(self, '$1State', cont, per, game_info, helper)
+
+    def enter(self):
+        pass
+
+    def exit(self):
+        pass
+
+    def run(self):
+        pass
+endsnippet
+
+snippet fsm
+class $1StateMachine(StateMachine):         
+    def __init__(self, cont, per, game_info, helper):
+        state_map = { 
+                }
+        initial_state = state_map["LookForBallState"]
+        initial_state.enter()
+        StateMachine.__init__(self, '$1StateMachine', initial_state,
+                state_map, cont, per, game_info, helper)
+
+    def enter(self):
+        pass
+
+    def exit(self):
+        pass
+
+    def run(self):
+        """
+        Starts to run the active state, and when the conditions are met transition to
+        a new one.
+        """
+        self.active_state.run() 
+        if self.active_state.name == "LookForBallState":
+            self.__manage_look_for_ball()
+        elif self.active_state.name == "ShootBallState":
+            self.__manage_shoot_ball() 
+
+    def __manage_look_for_ball(self):
+        """
+        Manages the conditions and corresponding transitions of the 
+        look for ball state.
+        """
+        if self.active_state.conditions["found_ball"]: 
+            self.transition_to("ShootBallState")
+       
+    def __manage_shoot_ball(self):
+        """
+        Manages the conditions and corresponding transitions of the 
+        shoot ball state.
+        """
+        if self.active_state.conditions["kicked"]:
+            self.transition_to("LookForBallState")
+            #self.transition_to("KickedBallState")
+        elif not self.active_state.conditions["seeing_ball"]:
+            rospy.loginfo("No longer seeing ball")
+            self.transition_to("LookForBallState")
+    
+    def __manage_kicked_ball(self):
+        """
+        Manages the condition when just kicked ball
+        """
+        if self.active_state.conditions["found_ball"]:
+            self.transition_to("ShootBallState")
+endsnippet
+
+snippet sme
+"$1": $1(cont, per, game_info, helper),
+endsnippet
