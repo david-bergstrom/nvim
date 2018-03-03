@@ -1,26 +1,36 @@
 " Modeline looks for hints on first rows on files, only ever used in TDDD48.
-" Remove when course is finished
 set modeline
 
-set inccommand=split
+"set inccommand=split
 
 " Enable 256 colors, maybe..?
 set t_Co=256
+
+" Enable mouse in all modes
 set mouse=a
+
+" Set leader to space
+let mapleader="\<SPACE>"
 
 " Vim-things, default in nvim
 if !has('nvim')
     " Enable syntax highlighting
     syntax enable
-   " Enable mouse in all modes
+endif
+
+if has("gui_running")
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+    set guioptions-=r  "remove right-hand scroll bar
+    set guioptions-=L  "remove left-hand scroll bar
+    set guifont=Gohu\ Gohufont\ 11,gohufont\ 11<CR>
+    map <Leader>0 :set guifont=Gohu\ Gohufont\ 11,gohufont\ 11<CR>
+    map <Leader>9 :set guifont=Gohu\ Gohufont\ 8,gohufont\ 8<CR>
 endif
 
 " TODO: Send to Henning
 "map <ScrollWheelUp> <C-r>
 "map <ScrollWheelDown> u
-
-" Set leader to space
-let mapleader="\<SPACE>"
 
 " Relative line numbers are cool
 set relativenumber
@@ -75,34 +85,40 @@ set cino=
 set spelllang=sv,en
 
 " vim-plug
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible' " Sensible default settings (not needed in nvim)
 Plug 'altercation/vim-colors-solarized'  " Superior color theme
 Plug 'ctrlpvim/ctrlp.vim'  " Find files quickly
 Plug 'tpope/vim-sleuth'  " Auto-detect indentation level
-Plug 'bling/vim-airline'  " Cool statusbar
-Plug 'vim-airline/vim-airline-themes'  " Solarized theme (amongst other)
 Plug 'junegunn/goyo.vim'  " Distraction free mode for writing
 Plug 'airblade/vim-gitgutter'  " View git status
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'tpope/vim-surround' " Surround things
 Plug 'tpope/vim-repeat' " Improve repeat to work with vim-surround
-Plug 'taketwo/vim-ros' " Mode for Robotic Operating System
 Plug 'tpope/vim-fugitive' " Awesome git integration
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
-Plug 'PontusPersson/pddl.vim' " PDDL syntax highlighting
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
 Plug 'junegunn/rainbow_parentheses.vim' " Rainbow parantheses, great for vim
 Plug 'SirVer/ultisnips' " Snippets are cool
+Plug 'PotatoesMaster/i3-vim-syntax'
+
+" Old plugins, no longer used
+"Plug 'bling/vim-airline'  " Cool statusbar
+"Plug 'vim-airline/vim-airline-themes'  " Solarized theme (amongst other)
+"Plug 'PontusPersson/pddl.vim' " PDDL syntax highlighting
+"Plug 'matze/vim-tex-fold'
+"Plug 'unblevable/quick-scope'
+"Plug 'taketwo/vim-ros' " Mode for Robotic Operating System
 
 call plug#end()
 
 " vim-colors-solarized
-set background=dark
 "set background=light
+set background=dark
 colorscheme solarized
 call togglebg#map("<F5>")
+let g:solarized_termcolors=256
 
 " CtrlP settings
 
@@ -124,7 +140,7 @@ if !has('nvim')
     set laststatus=2
 endif
 
-nnoremap <leader>g :Goyo 80x100%<CR>
+nnoremap <leader>g :Goyo<CR>
 
 " vim-pandoc settings
 "let g:pandoc#modules#enabled = ["toc"]
@@ -143,7 +159,7 @@ let g:ycm_semantic_triggers = {
 \   'rosmsg,rossrv,rosaction' : ['re!^', '/'],
 \ }
 
-let g:ycm_extra_conf_globlist = ['~/ws/*', '~/TDDE05/*']
+"let g:ycm_extra_conf_globlist = ['~/ws/*', '~/TDDE05/*']
 
 " Rainbow parentheses
 augroup rainbow_lisp
@@ -151,5 +167,15 @@ augroup rainbow_lisp
   autocmd FileType lisp,clojure,scheme,pddl RainbowParentheses
 augroup END
 
+"augroup tdde19-notes
+"  autocmd!
+"  autocmd BufWrite /home/david/repos/tdde19/tdde19-notes.md :silent !~/repos/tdde19/upload.sh&
+"augroup END
+
 let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
+
+if has('nvim')
+  let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
+else
+  let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/ultisnips']
+endif
