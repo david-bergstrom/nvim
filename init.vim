@@ -98,12 +98,12 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'tpope/vim-surround' " Surround things
 Plug 'tpope/vim-repeat' " Improve repeat to work with vim-surround
 Plug 'tpope/vim-fugitive' " Awesome git integration
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
 Plug 'junegunn/rainbow_parentheses.vim' " Rainbow parantheses, great for vim
 Plug 'SirVer/ultisnips' " Snippets are cool
 Plug 'PotatoesMaster/i3-vim-syntax'
 
 " Old plugins, no longer used
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
 "Plug 'bling/vim-airline'  " Cool statusbar
 "Plug 'vim-airline/vim-airline-themes'  " Solarized theme (amongst other)
 "Plug 'PontusPersson/pddl.vim' " PDDL syntax highlighting
