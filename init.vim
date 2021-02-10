@@ -106,28 +106,44 @@ Plug 'tpope/vim-repeat' " Improve repeat to work with vim-surround
 Plug 'tpope/vim-fugitive' " Awesome git integration
 Plug 'SirVer/ultisnips' " Snippets are cool
 Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'itchyny/lightline.vim'
+Plug 'altercation/vim-colors-solarized'  " Superior color theme
 
 " Old plugins, no longer used
 "Plug 'junegunn/goyo.vim'  " Distraction free mode for writing
 "Plug 'tpope/vim-sensible' " Sensible default settings (not needed in nvim)
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
-"Plug 'bling/vim-airline'  " Cool statusbar
-"Plug 'vim-airline/vim-airline-themes'  " Solarized theme (amongst other)
 "Plug 'PontusPersson/pddl.vim' " PDDL syntax highlighting
 "Plug 'matze/vim-tex-fold'
 "Plug 'unblevable/quick-scope'
 "Plug 'taketwo/vim-ros' " Mode for Robotic Operating System
-"Plug 'altercation/vim-colors-solarized'  " Superior color theme
 "Plug 'junegunn/rainbow_parentheses.vim' " Rainbow parantheses, great for vim
 
 call plug#end()
 
 " vim-colors-solarized
 "set background=light
-"set background=dark
-"colorscheme solarized
+set background=dark
+colorscheme solarized
 "call togglebg#map("<F5>")
-"let g:solarized_termcolors=256
+let g:solarized_termcolors=256
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
+" Workaround to make git gutter visible when using solarized
+highlight clear SignColumn
+"highlight GitGutterAdd ctermfg=green
+"highlight GitGutterChange ctermfg=yellow
+"highlight GitGutterDelete ctermfg=red
+"highlight GitGutterChangeDelete ctermfg=yellow
 
 " CtrlP settings
 
@@ -142,8 +158,8 @@ nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>f :CtrlPMRUFiles<CR>
 
 " vim-airline settings
-let g:airline_theme='solarized'
-" let g:airline_powerline_fonts=1
+"let g:airline_theme='solarized'
+"let g:airline_powerline_fonts=1
 
 if !has('nvim')
     set laststatus=2
@@ -164,18 +180,19 @@ let g:pandoc#formatting#mode = "s"
 nnoremap <Leader>c :w<CR>:Pandoc pdf<CR>
 
 " YCM
-let g:ycm_semantic_triggers = {
-\   'roslaunch' : ['="', '$(', '/'],
-\   'rosmsg,rossrv,rosaction' : ['re!^', '/'],
-\ }
+" let g:ycm_semantic_triggers = {
+" \   'roslaunch' : ['="', '$(', '/'],
+" \   'rosmsg,rossrv,rosaction' : ['re!^', '/'],
+" \ }
 
 "let g:ycm_extra_conf_globlist = ['~/ws/*', '~/TDDE05/*']
+"let g:ycm_filetype_blacklist = { 'tex': 1 }
 
 " Rainbow parentheses
-augroup rainbow_lisp
-  autocmd!
-  autocmd FileType lisp,clojure,scheme,pddl RainbowParentheses
-augroup END
+" augroup rainbow_lisp
+"   autocmd!
+"   autocmd FileType lisp,clojure,scheme,pddl RainbowParentheses
+" augroup END
 
 "augroup tdde19-notes
 "  autocmd!
@@ -190,4 +207,3 @@ else
   let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/ultisnips']
 endif
 
-let g:ycm_filetype_blacklist = { 'tex': 1 }
