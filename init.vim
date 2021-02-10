@@ -23,10 +23,14 @@ if has("gui_running")
     set guioptions-=T  "remove toolbar
     set guioptions-=r  "remove right-hand scroll bar
     set guioptions-=L  "remove left-hand scroll bar
-    set guifont=Gohu\ Gohufont\ 11,gohufont\ 11<CR>
-    map <Leader>0 :set guifont=Gohu\ Gohufont\ 11,gohufont\ 11<CR>
-    map <Leader>9 :set guifont=Gohu\ Gohufont\ 8,gohufont\ 8<CR>
+    set guifont=Source\ Code\ Pro\ 11
+    map <Leader>0 :set guifont=Source\ Code\ Pro\ 11<CR>
+    map <Leader>9 :set guifont=Source\ Code\ Pro\ 13<CR>
 endif
+
+"set guifont=Gohu\ Gohufont\ 11,gohufont\ 11<CR>
+"map <Leader>0 :set guifont=Gohu\ Gohufont\ 11,gohufont\ 11<CR>
+"map <Leader>9 :set guifont=Gohu\ Gohufont\ 8,gohufont\ 8<CR>
 
 " TODO: Send to Henning
 "map <ScrollWheelUp> <C-r>
