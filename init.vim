@@ -108,6 +108,7 @@ Plug 'SirVer/ultisnips' " Snippets are cool
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'itchyny/lightline.vim'
 Plug 'altercation/vim-colors-solarized'  " Superior color theme
+Plug 'psf/black', { 'branch': 'stable' }
 
 " Old plugins, no longer used
 "Plug 'junegunn/goyo.vim'  " Distraction free mode for writing
@@ -207,3 +208,4 @@ else
   let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/ultisnips']
 endif
 
+autocmd BufWritePre *.py execute ':Black'
