@@ -76,7 +76,12 @@ nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>y "+y
 
+inoremap <C-D> <C-R>=strftime("%Y-%m-%d")<CR>
+nnoremap <C-D> <C-R>=strftime("%Y-%m-%d")<CR>
+
 nnoremap <leader>n :noh<CR>
+
+nnoremap <leader>l :!clear && glow -s dark %<CR>
 
 " Tab settings
 set tabstop=4       " number of visual spaces per TAB
@@ -91,38 +96,38 @@ set spelllang=sv,en
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
-Plug 'tpope/vim-sensible' " Sensible default settings (not needed in nvim)
-Plug 'altercation/vim-colors-solarized'  " Superior color theme
 Plug 'ctrlpvim/ctrlp.vim'  " Find files quickly
 Plug 'tpope/vim-sleuth'  " Auto-detect indentation level
-Plug 'junegunn/goyo.vim'  " Distraction free mode for writing
 Plug 'airblade/vim-gitgutter'  " View git status
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'tpope/vim-surround' " Surround things
 Plug 'tpope/vim-repeat' " Improve repeat to work with vim-surround
 Plug 'tpope/vim-fugitive' " Awesome git integration
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
-Plug 'junegunn/rainbow_parentheses.vim' " Rainbow parantheses, great for vim
 Plug 'SirVer/ultisnips' " Snippets are cool
 Plug 'PotatoesMaster/i3-vim-syntax'
 
 " Old plugins, no longer used
+"Plug 'junegunn/goyo.vim'  " Distraction free mode for writing
+"Plug 'tpope/vim-sensible' " Sensible default settings (not needed in nvim)
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
 "Plug 'bling/vim-airline'  " Cool statusbar
 "Plug 'vim-airline/vim-airline-themes'  " Solarized theme (amongst other)
 "Plug 'PontusPersson/pddl.vim' " PDDL syntax highlighting
 "Plug 'matze/vim-tex-fold'
 "Plug 'unblevable/quick-scope'
 "Plug 'taketwo/vim-ros' " Mode for Robotic Operating System
+"Plug 'altercation/vim-colors-solarized'  " Superior color theme
+"Plug 'junegunn/rainbow_parentheses.vim' " Rainbow parantheses, great for vim
 
 call plug#end()
 
 " vim-colors-solarized
 "set background=light
-set background=dark
-colorscheme solarized
-call togglebg#map("<F5>")
-let g:solarized_termcolors=256
+"set background=dark
+"colorscheme solarized
+"call togglebg#map("<F5>")
+"let g:solarized_termcolors=256
 
 " CtrlP settings
 
@@ -151,7 +156,8 @@ nnoremap <leader>g :Goyo<CR>
 let g:pandoc#modules#disabled = ["folding"]
 " Disable convertion to digraphs
 "let g:pandoc#syntax#conceal#use = 0
-let g:pandoc#formatting#mode = "ha"
+"let g:pandoc#formatting#mode = "ha"
+let g:pandoc#formatting#mode = "s"
 "let g:pandoc#folding#fold_yaml = 1
 "let g:pandoc#folding#fdc = 0
 
@@ -183,3 +189,5 @@ if has('nvim')
 else
   let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/ultisnips']
 endif
+
+let g:ycm_filetype_blacklist = { 'tex': 1 }
